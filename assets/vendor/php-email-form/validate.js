@@ -214,7 +214,7 @@
         quantityCounter: inputValues.quantityCounter,
         tableQuantity: inputValues.tableQuantity,
         quantityChair: inputValues.quantityChair,
-        typeFloor: selectValues.typeFloor,
+        typeFloor: parseInt(selectValues.typeFloor),
         quantityTv: inputValues.quantityTv,
         isNeededGraph: selectValues.isNeededGraph,
         images: imagesBase64,
