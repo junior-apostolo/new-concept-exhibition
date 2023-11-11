@@ -49,7 +49,7 @@
     var toast = document.getElementById("toast");
     toast.className = "toast show";
     toast.innerText = message;
-    if(isValid) {
+    if (isValid) {
       toast.style.backgroundColor = "#18d26e";
       toast.style.color = "#000";
     }
@@ -65,7 +65,7 @@
   }
 
   function validateField(field, language) {
-    console.log("VALIDATE FIELD",field, language)
+    console.log("VALIDATE FIELD", field, language);
     function verifyErrors() {
       let foundError = false;
 
@@ -198,15 +198,31 @@
       {}
     );
 
-    const typeFloor = parseInt(selectValues.typeFloor)
+    const request = {
+      telephone: inputValues.telephone,
+      eventName: inputValues.event,
+      eventDate: inputValues.dateEvent,
+      email: inputValues.email,
+      eventPlace: inputValues.place,
+      standSize: inputValues.size,
+      budget: inputValues.budget,
+      quantityCounter: inputValues.quantityCounter,
+      tableQuantity: inputValues.tableQuantity,
+      quantityChair: inputValues.quantityChair,
+      typeFloor: selectValues.typeFloor,
+      quantityTv: inputValues.quantityTv,
+      isNeededGraph: selectValues.isNeededGraph,
+      images: imagesBase64,
+    };
+
 
     fetch("https://new-cncept-exhibition-2ed472269eb6.herokuapp.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        telephone: inputValues.contact,
+      body: {
+        telephone: inputValues.telephone,
         eventName: inputValues.event,
         eventDate: inputValues.dateEvent,
         email: inputValues.email,
@@ -216,11 +232,11 @@
         quantityCounter: inputValues.quantityCounter,
         tableQuantity: inputValues.tableQuantity,
         quantityChair: inputValues.quantityChair,
-        typeFloor: typeFloor,
+        typeFloor: selectValues.typeFloor,
         quantityTv: inputValues.quantityTv,
         isNeededGraph: selectValues.isNeededGraph,
         images: imagesBase64,
-      }),
+      },
     }).then((response) => {
       if (response.ok) {
         return console.log("Formulario enviado");
@@ -228,9 +244,8 @@
       console.error("Erro no Envio do formulario");
     });
 
-    console.log(inputValues);
-    console.log(selectValues);
 
+    console.log(request)
     return true;
   }
 
@@ -248,13 +263,13 @@
   document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log("Send",uploadTypeFile())
+    console.log("Send", uploadTypeFile());
     if (uploadTypeFile()) {
-      showToast("Dados Enviados", true)
+      showToast("Dados Enviados", true);
       console.log("Enviar");
-      event.target.reset()
+      event.target.reset();
     } else {
-      showToast("Preencha os campos")
+      showToast("Preencha os campos");
     }
   });
 
