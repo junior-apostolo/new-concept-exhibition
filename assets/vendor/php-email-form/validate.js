@@ -198,6 +198,7 @@
       {}
     );
 
+
     const request = {
       telephone: inputValues.telephone,
       eventName: inputValues.event,
@@ -205,16 +206,18 @@
       email: inputValues.email,
       eventPlace: inputValues.place,
       standSize: inputValues.size,
-      budget: inputValues.budget,
-      quantityCounter: inputValues.quantityCounter,
-      tableQuantity: inputValues.tableQuantity,
-      quantityChair: inputValues.quantityChair,
-      typeFloor: selectValues.typeFloor,
-      quantityTv: inputValues.quantityTv,
-      isNeededGraph: selectValues.isNeededGraph,
+      budget: parseFloat(inputValues.budget),
+      quantityCounter: parseInt(inputValues.quantityCounter),
+      tableQuantity: parseInt(inputValues.tableQuantity),
+      quantityChair: parseInt(inputValues.quantityChair),
+      typeFloor: parseInt(selectValues.typeFloor),
+      quantityTv: parseInt(inputValues.quantityTv),
+      isNeededGraph: Boolean(selectValues.isNeededGraph),
       images: imagesBase64,
     };
 
+    console.log("REQUEST", request);
+    console.log("BUDGET", parseFloat(inputValues.budget));
 
     fetch("https://new-cncept-exhibition-2ed472269eb6.herokuapp.com/register", {
       method: "POST",
@@ -228,13 +231,13 @@
         email: inputValues.email,
         eventPlace: inputValues.place,
         standSize: inputValues.size,
-        budget: inputValues.budget,
-        quantityCounter: inputValues.quantityCounter,
-        tableQuantity: inputValues.tableQuantity,
-        quantityChair: inputValues.quantityChair,
-        typeFloor: selectValues.typeFloor,
-        quantityTv: inputValues.quantityTv,
-        isNeededGraph: selectValues.isNeededGraph,
+        budget: parseFloat(inputValues.budget),
+        quantityCounter: parseInt(inputValues.quantityCounter),
+        tableQuantity: parseInt(inputValues.tableQuantity),
+        quantityChair: parseInt(inputValues.quantityChair),
+        typeFloor: parseInt(selectValues.typeFloor),
+        quantityTv: parseInt(inputValues.quantityTv),
+        isNeededGraph: Boolean(selectValues.isNeededGraph),
         images: imagesBase64,
       },
     }).then((response) => {
@@ -244,8 +247,6 @@
       console.error("Erro no Envio do formulario");
     });
 
-
-    console.log(request)
     return true;
   }
 
@@ -263,10 +264,8 @@
   document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log("Send", uploadTypeFile());
     if (uploadTypeFile()) {
       showToast("Dados Enviados", true);
-      console.log("Enviar");
       event.target.reset();
     } else {
       showToast("Preencha os campos");

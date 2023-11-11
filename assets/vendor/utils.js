@@ -20,7 +20,7 @@ $(document).ready(function () {
 });
 
 
-let language;
+let language = "English";
 
 document.querySelector(".dropdown ul li a").forEach((item) => {
   item.addEventListener("click", (event) => {
