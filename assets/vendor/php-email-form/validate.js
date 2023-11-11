@@ -198,6 +198,8 @@
       {}
     );
 
+    const typeFloor = parseInt(selectValues.typeFloor)
+
     fetch("https://new-cncept-exhibition-2ed472269eb6.herokuapp.com/register", {
       method: "POST",
       headers: {
@@ -214,7 +216,7 @@
         quantityCounter: inputValues.quantityCounter,
         tableQuantity: inputValues.tableQuantity,
         quantityChair: inputValues.quantityChair,
-        typeFloor: parseInt(selectValues.typeFloor),
+        typeFloor: typeFloor,
         quantityTv: inputValues.quantityTv,
         isNeededGraph: selectValues.isNeededGraph,
         images: imagesBase64,
