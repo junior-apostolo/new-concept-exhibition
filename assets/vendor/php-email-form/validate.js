@@ -10,22 +10,26 @@
 
   const budget = document.querySelector("#budget");
 
-  
   document.querySelectorAll(".dropdown ul li a").forEach((item) => {
     item.addEventListener("click", (event) => {
       const valueSelected = event.target.textContent.trim();
-      
+
       language = valueSelected;
     });
-    
-    budget.addEventListener("input", (e) => {
-      let value = e.target.value;
-      value = value.replace(/[\D\s\._\-]+/g, "");
-      value = value ? parseInt(value, 10) : 0;
-      e.target.value = function (value) {
-        return (value === 0) ? "" : new Intl.NumberFormat(language, { style: 'currency', currency: language == 'en-US' ? 'USD' : 'BRL' }).format(value / 100);
-      }(value);
-    });
+  });
+
+  budget.addEventListener("input", (e) => {
+    let value = e.target.value;
+    value = value.replace(/[\D\s\._\-]+/g, "");
+    value = value ? parseInt(value, 10) : 0;
+    e.target.value = (function (value) {
+      return value === 0
+        ? ""
+        : new Intl.NumberFormat(language, {
+            style: "currency",
+            currency: language == "en-US" ? "USD" : "BRL",
+          }).format(value / 100);
+    })(value);
   });
 
   function preview() {
@@ -209,6 +213,8 @@
       },
       {}
     );
+    
+    inputValues.budget = inputValues.budget.replace(/[^\d.-]/g, '')
 
     const request = {
       telephone: inputValues.telephone,
@@ -228,29 +234,14 @@
     };
 
     console.log("REQUEST", request);
-    console.log("BUDGET", parseFloat(inputValues.budget));
+
 
     fetch("https://new-cncept-exhibition-2ed472269eb6.herokuapp.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
-        telephone: inputValues.telephone,
-        eventName: inputValues.event,
-        eventDate: inputValues.dateEvent,
-        email: inputValues.email,
-        eventPlace: inputValues.place,
-        standSize: inputValues.size,
-        budget: parseFloat(inputValues.budget),
-        quantityCounter: parseInt(inputValues.quantityCounter),
-        tableQuantity: parseInt(inputValues.tableQuantity),
-        quantityChair: parseInt(inputValues.quantityChair),
-        typeFloor: parseInt(selectValues.typeFloor),
-        quantityTv: parseInt(inputValues.quantityTv),
-        isNeededGraph: Boolean(selectValues.isNeededGraph),
-        images: imagesBase64,
-      },
+      body: request,
     }).then((response) => {
       if (response.ok) {
         return console.log("Formulario enviado");
