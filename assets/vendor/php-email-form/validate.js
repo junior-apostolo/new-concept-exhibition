@@ -6,13 +6,25 @@
 
   let imageContainer = document.getElementById("images");
   let numOfFiles = document.getElementById("num-of-files");
-  let language = "English";
+  let language = "en-US";
 
+  const budget = document.querySelector("#budget");
+
+  
   document.querySelectorAll(".dropdown ul li a").forEach((item) => {
     item.addEventListener("click", (event) => {
       const valueSelected = event.target.textContent.trim();
-
+      
       language = valueSelected;
+    });
+    
+    budget.addEventListener("input", (e) => {
+      let value = e.target.value;
+      value = value.replace(/[\D\s\._\-]+/g, "");
+      value = value ? parseInt(value, 10) : 0;
+      e.target.value = function (value) {
+        return (value === 0) ? "" : new Intl.NumberFormat(language, { style: 'currency', currency: language == 'en-US' ? 'USD' : 'BRL' }).format(value / 100);
+      }(value);
     });
   });
 
@@ -80,7 +92,7 @@
 
     function customMessage(typeError) {
       const messages = {
-        English: {
+        "en-US": {
           text: {
             valueMissing: "Please fill out this field",
           },
@@ -197,7 +209,6 @@
       },
       {}
     );
-
 
     const request = {
       telephone: inputValues.telephone,

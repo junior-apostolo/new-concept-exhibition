@@ -47,8 +47,8 @@ document.querySelectorAll(".dropdown ul li a").forEach((item) => {
 
     var valorSelecionado = event.target.textContent.trim();
 
-    if (valorSelecionado === "English") {
-      languageSelected.textContent = "English";
+    if (valorSelecionado === "en-US") {
+      languageSelected.textContent = "en-US";
       languageSelected.className = "language-selected change-en";
     } else {
       languageSelected.textContent = "pt-BR";

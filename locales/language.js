@@ -1,5 +1,5 @@
  export const data = {
-    English: {
+    "en-US": {
       "title": "Better Solutions For Your Business",
       "subTitle": "We are a talented team that helps you realize your goal",
       "aboutNavEl": "About",
