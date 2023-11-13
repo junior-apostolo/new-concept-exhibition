@@ -35,7 +35,8 @@
       "address":"Location:",
       "phone": "Call:",
       "titleBG": "NewConcept: Turning ideas into reality!",
-      "descriptionBG": "With NewConcept, your stand will be more than just a physical space - it will be an unforgettable experience that reflects the essence of your brand. Come build the future with us!"
+      "descriptionBG": "With NewConcept, your stand will be more than just a physical space - it will be an unforgettable experience that reflects the essence of your brand. Come build the future with us!",
+      "galleryText": "Check out our image gallery here, where each photo is a story of success. The images highlight the quality and excellence of the services we offer. Each image is a testament to our commitment to providing the best for our customers. Enjoy our gallery and find out why we are the right choice for you." 
     },
     "pt-BR": {
       "title": "Melhores soluções para o seu negócio",
@@ -73,6 +74,7 @@
       "address":"Localização:",
       "phone": "Telefone:",
       "titleBG": "NewConcept: Transformando ideias em realidade!",
-      "descriptionBG": "Com a NewConcept, seu estande será mais do que apenas um espaço físico - será uma experiência inesquecível que reflete a essência da sua marca. Venha construir o futuro conosco!"
+      "descriptionBG": "Com a NewConcept, seu estande será mais do que apenas um espaço físico - será uma experiência inesquecível que reflete a essência da sua marca. Venha construir o futuro conosco!",
+      "galleryText": "Confira aqui a nossa galeria de imagens, onde cada foto é uma história de sucesso. As imagens destacam a qualidade e a excelência dos serviços que oferecemos. Cada imagem é um testemunho do nosso compromisso em fornecer o melhor para nossos clientes. Aprecie a nossa galeria e descubra por que somos a escolha certa para você." 
     },
  };

@@ -1671,6 +1671,17 @@ section {
   flex-wrap: wrap;
 }
 
+@media(max-width: 575px) {
+  .container-images{
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .container-images label {
+    width: 100%;
+  }
+}
+
 figure {
   width: 45%;
 }

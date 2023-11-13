@@ -37,6 +37,7 @@ const address = document.querySelector("#address")
 const phone = document.querySelector("#phone")
 const titleBG = document.querySelector("#titleBG")
 const descriptionBG = document.querySelector("#descriptionBG")
+const galleryText = document.querySelector("#galleryText")
 
 
 import { data } from "../../../locales/language.js";
@@ -90,6 +91,7 @@ document.querySelectorAll(".dropdown ul li a").forEach((item) => {
     address.textContent = data[valorSelecionado].address
     phone.textContent = data[valorSelecionado].phone
     titleBG.textContent = data[valorSelecionado].titleBG
-    descriptionBG.textContent = data[valorSelecionado].descriptionBG
+    descriptionBG.textContent = data[valorSelecionado].descriptionBG 
+    galleryText.textContent = data[valorSelecionado].galleryText 
   });
 });
