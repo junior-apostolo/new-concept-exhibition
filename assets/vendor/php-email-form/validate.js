@@ -18,6 +18,25 @@
     });
   });
 
+  window.onload = function () {
+    document.getElementById("telephone").onkeyup = function () {
+      this.value = mascaraTelefone(this.value);
+    };
+  };
+
+  function mascaraTelefone(valor) {
+    if (language == "en-US") {
+      valor = valor.replace(/\D/g, ""); //Remove tudo o que não é dígito
+      valor = valor.replace(/^(\d{3})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+      valor = valor.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+    } else {
+      valor = valor.replace(/\D/g, ""); //Remove tudo o que não é dígito
+      valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+      valor = valor.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+    }
+    return valor;
+  }
+
   budget.addEventListener("input", (e) => {
     let value = e.target.value;
     value = value.replace(/[\D\s\._\-]+/g, "");
@@ -68,7 +87,11 @@
     if (isValid) {
       toast.style.backgroundColor = "#18d26e";
       toast.style.color = "#000";
+    } else {
+      toast.style.backgroundColor = "red";
+      toast.style.color = "#fff";
     }
+
     setTimeout(function () {
       toast.className = toast.className.replace("show", "");
     }, 3000);
@@ -81,7 +104,6 @@
   }
 
   function validateField(field, language) {
-    console.log("VALIDATE FIELD", field, language);
     function verifyErrors() {
       let foundError = false;
 
@@ -194,9 +216,6 @@
         };
         reader.readAsDataURL(file);
       });
-    } else {
-      showToast("Please select images.");
-      return false;
     }
 
     const inputValues = Array.from(document.querySelectorAll("input")).reduce(
@@ -213,8 +232,8 @@
       },
       {}
     );
-    
-    inputValues.budget = inputValues.budget.replace(/[^\d.-]/g, '')
+
+    inputValues.budget = inputValues.budget.replace(/[^\d.-]/g, "");
 
     const request = {
       telephone: inputValues.telephone,
@@ -233,20 +252,25 @@
       images: imagesBase64,
     };
 
-    console.log("REQUEST", request);
-
 
     fetch("https://new-cncept-exhibition-2ed472269eb6.herokuapp.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: request,
+      body: JSON.stringify(request),
     }).then((response) => {
       if (response.ok) {
-        return console.log("Formulario enviado");
+        response.json().then((data) => {
+          showToast("Formulário enviado com sucesso", true)
+        })
+      } else {
+        response.json().then((data) => {
+          showToast("Erro ao enviar o formulário", false)
+        })
       }
-      console.error("Erro no Envio do formulario");
+    }).catch((err) => {
+      showToast("Erro na requisição")
     });
 
     return true;
@@ -263,54 +287,28 @@
 
   fieldFile.addEventListener("change", preview);
 
+  // var form = document.getElementById('formEvent');
   document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
 
     if (uploadTypeFile()) {
       showToast("Dados Enviados", true);
-      event.target.reset();
+      setTimeout(() => {
+        location.reload();
+      }, 5000);
     } else {
       showToast("Preencha os campos");
     }
   });
-
-  // function php_email_form_submit(thisForm, action, formData) {
-  //   fetch(action, {
-  //     method: "POST",
-  //     body: formData,
-  //     headers: { "X-Requested-With": "XMLHttpRequest" },
-  //   })
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.text();
-  //       } else {
-  //         throw new Error(
-  //           `${response.status} ${response.statusText} ${response.url}`
-  //         );
-  //       }
-  //     })
-  //     .then((data) => {
-  //       thisForm.querySelector(".loading").classList.remove("d-block");
-  //       if (data.trim() == "OK") {
-  //         thisForm.querySelector(".sent-message").classList.add("d-block");
-  //         thisForm.reset();
-  //       } else {
-  //         throw new Error(
-  //           data
-  //             ? data
-  //             : "Form submission failed and no error message returned from: " +
-  //               action
-  //         );
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       displayError(thisForm, error);
-  //     });
-  // }
-
-  // function displayError(thisForm, error) {
-  //   thisForm.querySelector(".loading").classList.remove("d-block");
-  //   thisForm.querySelector(".error-message").innerHTML = error;
-  //   thisForm.querySelector(".error-message").classList.add("d-block");
-  // }
 })();
+
+//   var campos = form.elements;
+//   for(var i = 0; i < campos.length; i++) {
+//     if(campos[i].type !== 'submit') { // Evita limpar o botão de envio
+//         if(campos[i].type === 'file') { // Limpa o campo de arquivo
+//             campos[i].value = null;
+//         } else {
+//             campos[i].value = '';
+//         }
+//     }
+// }

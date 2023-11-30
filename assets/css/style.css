@@ -1442,7 +1442,7 @@ section {
   align-items: center;
   justify-content: center;
   visibility: hidden;
-  height: 50px;
+  min-height: 50px;
   line-height: 50px;
   margin-left: -125px;
   margin-bottom: 30px;
@@ -1456,6 +1456,9 @@ section {
   right: 0;
   bottom: 30px;
   font-size: 17px;
+  width: auto; /* Adicione esta linha */
+  max-width: 90%; /* Adicione esta linha */
+  word-wrap: break-word; /* Adicione esta linha */
 }
 
 .toast.show {

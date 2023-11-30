@@ -1048,7 +1048,7 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form action="" class="form-contact">
+              <form id="formEvent" action="" class="form-contact">
                 <div class="row">
                   <div class="form-input col-md-6">
                     <input id="name" type="text" name="name" required />
@@ -1064,7 +1064,7 @@
 
                 <div class="row">
                   <div class="form-input col-md-6">
-                    <input id="telephone" type="tel" name="telephone" required />
+                    <input id="telephone" type="text" maxlength="15" name="telephone" required />
                     <label id="labelName" for="name">Customer contact</label>
                     <span class="input-error"></span>
                   </div>
@@ -1346,6 +1346,9 @@
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
     <script></script>
   </body>
