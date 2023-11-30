@@ -38,6 +38,57 @@
         vertical-align: top;
         display: inline-block;
       }
+
+      .three-columns {
+        text-align: center;
+        padding: 35px 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .three-columns .column {
+        width: 100%;
+        max-width: 200px;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .three-columns .padding {
+        padding: 15px;
+      }
+
+      .three-columns .content {
+        font-size: 15px;
+        line-height: 20px;
+      }
+
+      .image {
+        position: relative;
+        max-width: 600px;
+      }
+
+      .image img {
+        width: 100%;
+        display: block;
+        margin: auto;
+      }
+
+      .content {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+      }
+
     </style>
   </head>
   <body>
@@ -49,13 +100,13 @@
 
         <!--LOGO SECTION-->
         <tr>
-          <td style="padding: 14px 0 4px;">
+          <td style="padding: 14px 0 4px">
             <table width="100%">
               <tr>
                 <td class="two-columns">
                   <table class="column">
                     <tr>
-                      <td style="padding: 0 62px 10px;">
+                      <td style="padding: 0 62px 10px">
                         <a href="">
                           <img
                             src="../assets/img/why-us.png"
@@ -70,24 +121,12 @@
 
                   <!--ICONS SOCIAL NETWORKS -->
 
-                  <table>
+                  <table class="column">
                     <tr>
-                      <td style="padding: 10px 68px;>
-                        <a href="#" width="32">
-                          <img src="" alt="" />
-                        </a>
-                        <a href="#" width="32">
-                          <img src="" alt="" />
-                        </a>
-                        <a href="#" width="32">
-                          <img src="" alt="" />
-                        </a>
-                        <a href="#" width="32">
-                          <img src="" alt="" />
-                        </a>
-                        <a href="#" width="32">
-                          <img src="" alt="" />
-                        </a>
+                      <td style="padding: 10px 68px">
+                        <p style="font-size: 20px; font-weight: bold">
+                          Name Enterprise
+                        </p>
                       </td>
                     </tr>
                   </table>
@@ -97,29 +136,145 @@
           </td>
         </tr>
 
-        <!--BANNER IMAGE-->
+        
+        <!-- BLUE BORDER-->
         <tr>
-          <td>
-            <a href="#"><img src="../assets/img/portfolio/gallery/IMG-1122.jpg" alt="" width="600" style="max-width: 100%;"></a>
-          </td>
+          <td height="2" style="background-color: #a6d8ee"></td>
         </tr>
 
         <tr>
-          <td>
+          <td style="padding: 5px 0 50px">
             <table width="100%">
               <tr>
-                <td style="text-align: center;padding: 15px;">
-                  <p style="font-size: 20px; font-weight: bold;">Email Template <strong style="color: #289dcf;">Teste</strong></p>
+                <td style="text-align: center; padding: 15px">
+                  <p style="font-size: 20px; font-weight: bold">
+                    Olá, temos o prazer de informar que um novo orçamento chegou.
+                  </p>
                 </td>
-              </tr> 
+              </tr>
             </table>
           </td>
         </tr>
 
-        <!--INFO ORÇAMENTO-->
+        <!--BANNER IMAGE-->
         <tr>
           <td>
-            <table width="100%"></table>
+            <div class="image">
+              <img
+                src="../assets/img/portfolio/gallery/IMG-1122.jpg"
+                alt=""
+            />
+            <div class="content">
+              <h1>New Concept</h1>
+              <p>Conheça nossa empresa, comprometida em fornecer soluções de alta qualidade</p>
+            </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding: 5px 0 50px">
+            <table width="100%">
+              <tr>
+                <td style="text-align: center; padding: 15px">
+                  <p style="font-size: 20px; font-weight: bold">
+                    <strong style="color: #289dcf">Novo Orçamento</strong>
+                  </p>
+                  <p
+                    style="
+                      font-size: 15px;
+                      line-height: 23px;
+                      padding: 5px 0 15px;
+                    "
+                  >
+                  Este orçamento contém uma estimativa detalhada dos custos associados ao seu projeto. Ele foi cuidadosamente elaborado para garantir que abrange todas as suas necessidades, ao mesmo tempo que oferece o melhor valor pelo seu investimento.
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- BLUE BORDER-->
+        <tr>
+          <td height="2" style="background-color: #a6d8ee"></td>
+        </tr>
+
+        <!--INFO ORÇAMENTO-->
+        <tr>
+          <td class="">
+            <div class="three-columns"">
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Email</p>
+                <p>teste@gmail.com</p>
+              </div>
+
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Name</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Event Name</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Date Event</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Event Place</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Budget</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Contact</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Quantity Counter</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Table Quantity</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Quantity Chair</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Type Floor</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Quantity TV</p>
+                <p>teste@gmail.com</p>
+              </div>
+              <div>
+                <p style="font-weight: bold; font-size: 17px">Is NeededGraph</p>
+                <p>teste@gmail.com</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- FOOTER SECTION -->
+        <tr>
+          <td style="background-color: #565656; color: #ffffff;">
+            <table width="100%">
+              <tr>
+                <td style="text-align: center; padding: 45px 20px;">
+                  <!-- Logo Image -->
+                  <a href=""><img src="" alt="" width="160"></a>
+                  <p style="padding: 10px;">Insight HTML Email</p>
+                  <p style="padding: 10px;">2033 W McNab Rd, Unit G Pompano Beach, FL 33069</p>
+
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
       </table>
