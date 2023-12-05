@@ -287,7 +287,6 @@
 
   fieldFile.addEventListener("change", preview);
 
-  // var form = document.getElementById('formEvent');
   document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -301,14 +300,3 @@
     }
   });
 })();
-
-//   var campos = form.elements;
-//   for(var i = 0; i < campos.length; i++) {
-//     if(campos[i].type !== 'submit') { // Evita limpar o botão de envio
-//         if(campos[i].type === 'file') { // Limpa o campo de arquivo
-//             campos[i].value = null;
-//         } else {
-//             campos[i].value = '';
-//         }
-//     }
-// }
