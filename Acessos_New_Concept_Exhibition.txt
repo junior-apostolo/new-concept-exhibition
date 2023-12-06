@@ -1,0 +1,29 @@
+Criar contas: 
+- SendGrid
+- Heroku
+- Git
+- Imgur
+- Vercel
+
+Realizar a compra do dominio
+
+Ajustar SEO e desempenho do site
+
+ACESSOS DO PROJETO NEWCONCEPT
+
+- GITHUB e Vercel:
+username: SamNewConcept
+password: NCE-web23
+
+- Imgur:
+username: SamNewConcept
+password: NCE-web23
+
+- SendGrid:
+login: newconceptexhibit@gmail.com
+senha: SamstandNCE-web23
+
+- Heroku:
+login: newconceptexhibit@gmail.com
+senha: NCE-web23
+
